@@ -2,6 +2,11 @@
 import { FieldValues, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+import { useToast } from './ui/use-toast'
+import { Input } from './ui/input'
+import { Textarea } from './ui/textarea'
+import { Button } from './ui/button'
+import { Label } from './ui/label'
 
 const formSchema = z.object({
   name: z.string().trim().min(2, 'Имя должно содержать не менее 2 символов'),
@@ -18,6 +23,7 @@ const formSchema = z.object({
 })
 
 const Form = () => {
+  const { toast } = useToast()
   const {
     register,
     handleSubmit,
@@ -36,6 +42,7 @@ const Form = () => {
         },
         body: JSON.stringify(data),
       })
+      toast({ description: 'Ваше сообщение было отправлено!' })
       return response.json()
     } catch (error) {
       console.log(error)
@@ -47,89 +54,64 @@ const Form = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='space-y-6'>
       <div>
-        <label
-          htmlFor='name'
-          className='block mb-1 text-sm font-medium text-gray-700'
-        >
+        <Label htmlFor='name' className='inline-block mb-1.5'>
           Имя
-        </label>
-        <input
-          {...register('name')}
-          className='flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 focus:ring-emerald-600'
-          id='name'
-          placeholder='Ваше имя'
-          type='text'
-        />
+        </Label>
+        <Input {...register('name')} placeholder='Имя' type='text' id='name' />
         {errors.name && (
           <p className='text-sm mt-1 text-red-500'>{`${errors.name.message}`}</p>
         )}
       </div>
       <div>
-        <label
-          htmlFor='phoneNumber'
-          className='block mb-1 text-sm font-medium text-gray-700'
-        >
+        <Label htmlFor='phoneNumber' className='block mb-1.5'>
           Номер телефона
-        </label>
-        <input
+        </Label>
+        <Input
           {...register('phoneNumber')}
           id='phoneNumber'
           placeholder='+79991231212'
           type='number'
-          className='flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 focus:ring-emerald-600 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none'
+          className='[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none'
         />
         {errors.phoneNumber && (
           <p className='text-sm mt-1 text-red-500'>{`${errors.phoneNumber.message}`}</p>
         )}
       </div>
       <div>
-        <label
-          htmlFor='email'
-          className='block text-sm font-medium text-gray-700 mb-1'
-        >
+        <Label htmlFor='email' className='block mb-1.5'>
           Email
-        </label>
-        <input
+        </Label>
+        <Input
           {...register('email')}
-          className='flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 focus:ring-emerald-600'
           id='email'
           placeholder='Ваш email'
           type='email'
         />
+
         {errors.email && (
           <p className='text-sm mt-1 text-red-500'>{`${errors.email.message}`}</p>
         )}
       </div>
       <div>
-        <label
-          htmlFor='message'
-          className='block text-sm font-medium text-gray-700 mb-1'
-        >
+        <Label htmlFor='message' className='block mb-1.5'>
           Сообщение
-        </label>
-        <textarea
-          {...register('message', {
-            required: 'Нужно указать сообщение',
-            minLength: {
-              value: 10,
-              message: 'Сообщение должно содержать не менее 10 символов',
-            },
-          })}
-          className='flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 focus:ring-emerald-600'
+        </Label>
+        <Textarea
+          {...register('message')}
           id='message'
           placeholder='Ваше сообщение'
-        ></textarea>
+        />
         {errors.message && (
           <p className='text-sm mt-1 text-red-500'>{`${errors.message.message}`}</p>
         )}
       </div>
-      <button
+      <Button
         disabled={isSubmitting}
         type='submit'
-        className='items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-emerald-700 h-10 px-4 py-2 hidden sm:block bg-emerald-600 text-white w-full'
+        className='w-full bg-emerald-600 hover:bg-emerald-700'
       >
         {isSubmitting ? 'Отправляем' : 'Отправить'}
-      </button>
+      </Button>
     </form>
   )
 }

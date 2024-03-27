@@ -19,8 +19,8 @@ const Header = () => {
   return (
     <header>
       <div className='max-w-screen-xl px-4 py-4 mx-auto flex items-center justify-between'>
-        <div className='hidden sm:flex sm:items-center sm:justify-between'>
-          <Link href='/'>
+        <div className='flex items-center justify-between'>
+          <Link className='hidden md:block' href='/'>
             <Image
               src={Logo}
               width='100'
@@ -30,8 +30,11 @@ const Header = () => {
               className='rounded-full aspect-auto object-cover'
             />
           </Link>
+          <button onClick={handleBurgerMenu} className='block md:hidden'>
+            <BurgerIcon />
+          </button>
         </div>
-        <nav className='mx-auto flex flex-wrap justify-center items-center gap-4'>
+        <nav className='hidden md:flex md:gap-4'>
           {navLinks.map(link => (
             <Link
               key={link.url}
@@ -56,11 +59,7 @@ const Header = () => {
               <Link href='/industries'>Производство</Link>
               <ArrowDownDropDown />
             </button>
-            <div
-              className='absolute z-10 hidden group-hover:grid w-[200px] sm:w-[300px] md:w-[400px] -left-14 sm:-left-[155px] bg-white shadow-lg text-center py-4 px-8 rounded-md gap-4
-              grid-cols-1
-              sm:grid-cols-2 md:grid-cols-3'
-            >
+            <div className='absolute z-10 hidden group-hover:grid bg-white shadow-lg w-[450px] py-4 px-8 rounded-md grid grid-cols-3 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3'>
               {industries.map(industry => (
                 <Link
                   key={industry.id}

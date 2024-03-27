@@ -178,7 +178,7 @@ export const industries: IndustryType = [
   },
   {
     id: 7,
-    title: 'Медицинский',
+    title: 'Медицинское',
     slug: 'medical',
     url: '/industries/medical',
 
@@ -200,7 +200,7 @@ export const industries: IndustryType = [
   },
   {
     id: 8,
-    title: 'Облако',
+    title: 'Облачное',
     slug: 'cloud',
     url: '/industries/cloud',
 
