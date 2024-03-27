@@ -24,22 +24,20 @@ export async function sendMail({
   })
 
   try {
-    const testResult = await transport.verify()
-    console.log(testResult)
+    await transport.verify()
   } catch (error) {
     console.error({ error })
     return
   }
 
   try {
-    const sendResult = await transport.sendMail({
+    await transport.sendMail({
       from,
       to,
       subject,
       html: body,
       replyTo,
     })
-    console.log(sendResult)
   } catch (error) {
     console.log(error)
   }
