@@ -3,9 +3,9 @@ import Logo from '@/../public/vendista.png'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import ArrowDownDropDown from '@/components/ui/ArrowDownDropDown'
 import { navLinks } from '@/utils/navbarData'
 import { industries } from '@/utils/industries'
+import ArrowDownDropDown from './ui/ArrowDownDropDown'
 
 const Header = () => {
   const pathname = usePathname()
