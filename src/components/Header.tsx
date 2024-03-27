@@ -3,19 +3,12 @@ import Logo from '@/../public/vendista.png'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import ArrowDownDropDown from './ui/ArrowDownDropDown'
-import BurgerIcon from './ui/BurgerIcon'
+import ArrowDownDropDown from '@/components/ui/ArrowDownDropDown'
 import { navLinks } from '@/utils/navbarData'
 import { industries } from '@/utils/industries'
-import { useState } from 'react'
 
 const Header = () => {
-  const [openBurgerMenu, setOpenBurgerMenu] = useState(false)
   const pathname = usePathname()
-  const handleBurgerMenu = () => {
-    setOpenBurgerMenu(!openBurgerMenu)
-  }
-
   return (
     <header>
       <div className='max-w-screen-xl px-4 py-4 mx-auto flex items-center justify-between'>
