@@ -2,7 +2,7 @@ import { industries } from '@/utils/industries'
 import type { IndustryType } from '@/utils/industries'
 import { title } from 'process'
 
-export const generateMetadata = ({ params }) => {
+export const generateMetadata = ({ params }: { params: any }) => {
   const slug = params.industry
   const industry = industries.find(industry => industry.slug === slug)
   return {
@@ -11,7 +11,7 @@ export const generateMetadata = ({ params }) => {
   }
 }
 
-const SingleIndustryPage = ({ params }: { industry: IndustryType }) => {
+const SingleIndustryPage = ({ params }: { params: any }) => {
   const slug = params.industry
   const industry = industries.find(industry => industry.slug === slug)
   console.log(params.industry)
