@@ -14,7 +14,6 @@ export const generateMetadata = ({ params }: { params: any }) => {
 const SingleIndustryPage = ({ params }: { params: any }) => {
   const slug = params.industry
   const industry = industries.find(industry => industry.slug === slug)
-  console.log(params.industry)
   return (
     <section className='mb-10'>
       <div className='max-w-screen-xl mx-auto py-8 px-4'>
