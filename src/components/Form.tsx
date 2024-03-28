@@ -8,13 +8,15 @@ import { Textarea } from './ui/textarea'
 import { Button } from './ui/button'
 import { Label } from './ui/label'
 
+const phoneRegex = /^\+?7(\d{10})$/
+
 const formSchema = z.object({
   name: z.string().trim().min(2, 'Имя должно содержать не менее 2 символов'),
   phoneNumber: z
     .string()
     .trim()
     .min(11, 'Номер телефона должен содержать не менее 11 символов')
-    .regex(/^\+?[0-9]+$/, 'Номер телефона должен быть в формате +79991232552'),
+    .regex(phoneRegex, 'Неверный формат номера телефона. Пример: +79991231212'),
   email: z.string().trim().email('Неверный формат email'),
   message: z
     .string()
