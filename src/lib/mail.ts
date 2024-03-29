@@ -31,12 +31,25 @@ export async function sendMail({
   }
 
   try {
-    await transport.sendMail({
-      from,
-      to,
-      subject,
-      html: body,
-      replyTo,
+    await new Promise((resolve, reject) => {
+      transport.sendMail(
+        {
+          from,
+          to,
+          subject,
+          html: body,
+          replyTo,
+        },
+        (error, info) => {
+          if (error) {
+            console.error({ error })
+            reject(error)
+          } else {
+            console.log({ info })
+            resolve(info)
+          }
+        }
+      )
     })
   } catch (error) {
     console.log(error)

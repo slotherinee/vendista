@@ -48,6 +48,10 @@ const Form = () => {
       return response.json()
     } catch (error) {
       console.log(error)
+      toast({
+        description:
+          'К сожалению, произошла ошибка. Попробуйте отправить запрос позже.',
+      })
     } finally {
       reset()
     }
