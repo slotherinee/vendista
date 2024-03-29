@@ -37,7 +37,7 @@ const Form = () => {
 
   const onSubmit = async (data: FieldValues) => {
     try {
-      const response = await fetch('/api/send', {
+      const response = await fetch('/api/resend', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,7 +45,8 @@ const Form = () => {
         body: JSON.stringify(data),
       })
       toast({ description: 'Ваше сообщение было отправлено!' })
-      return response.json()
+      const emailData = await response.json()
+      return emailData
     } catch (error) {
       console.log(error)
       toast({
