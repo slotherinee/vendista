@@ -16,7 +16,7 @@ const Hero = () => {
                 height='0'
                 sizes='100vw'
               />
-              <div className='absolute inset-0 bg-black opacity-70'></div>
+              <div className='absolute inset-0 bg-black opacity-75'></div>
               <div className='absolute inset-0 flex items-center justify-center'>
                 <div className='text-white p-4 flex flex-col justify-center items-center gap-4'>
                   <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter mb-2 text-center animate__animated animate__fadeInLeft'>
