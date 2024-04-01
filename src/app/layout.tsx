@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     default: 'Vendista LLC',
   },
   description: '«Vendista LLC» - компания, производящая электронные компоненты',
+  metadataBase: new URL('https://digichips.ru'),
 }
 
 export default function RootLayout({

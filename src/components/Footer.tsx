@@ -29,17 +29,17 @@ const Footer = () => {
             <p>
               <Link
                 className='underline hover:no-underline'
-                href='tel:+78006002632'
+                href='tel:+79991637120'
               >
-                +7 (800) 600-26-32
+                +7 (999) 163-71-20
               </Link>
             </p>
             <p>
               <Link
                 className='underline hover:no-underline'
-                href='mailto:partners@vendista.ru'
+                href='mailto:info@digichips.ru'
               >
-                partners@vendista.ru
+                info@digichips.ru
               </Link>
             </p>
           </div>

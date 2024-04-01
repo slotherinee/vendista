@@ -68,7 +68,7 @@ const Header = () => {
         </nav>
         <div className='flex'>
           <button className='hidden md:block items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  h-10 px-4 py-2  text-emerald-600 border-2 border-emerald-600 hover:bg-emerald-700 hover:text-white'>
-            <Link href='mailto:partners@vendista.ru'>Напишите нам</Link>
+            <Link href='mailto:info@digichips.ru'>Напишите нам</Link>
           </button>
         </div>
       </div>
