@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import Logo from '@/../public/vendista.png'
+import Logo from '@/../public/digichips.jpeg'
 import { industries } from '@/utils/industries'
 
 const Footer = () => {
@@ -16,7 +16,7 @@ const Footer = () => {
                 width='100'
                 height='100'
                 alt='Logo'
-                className='rounded-full aspect-auto object-cover'
+                className='aspect-auto object-cover'
               />
             </Link>
           </div>

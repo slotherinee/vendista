@@ -1,5 +1,5 @@
 'use client'
-import Logo from '@/../public/vendista.png'
+import Logo from '@/../public/digichips.jpeg'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -20,7 +20,7 @@ const Header = () => {
               height='100'
               priority
               alt='Logo'
-              className='rounded-full aspect-auto object-cover'
+              className='aspect-auto object-cover'
             />
           </Link>
         </div>
