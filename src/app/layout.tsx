@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   },
   description: '«Vendista LLC» - компания, производящая электронные компоненты',
   metadataBase: new URL('https://digichips.ru'),
+  other: {
+    ['yandex-verification']: '8ba681a96eb2a0bb',
+  },
 }
 
 export default function RootLayout({
